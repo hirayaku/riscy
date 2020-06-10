@@ -1,0 +1,14 @@
+# When busybox is run as init (PID=1), /etc/inittab is read by it
+# to execute initialization tasks
+# Format is <id : runlevel : action : cmd>
+# Runlevel is ignored by busybox
+# Action priority during booting up: sysinit > wait > once > respawn = askfirst
+
+::sysinit:/etc/init.d/rcS
+#::shutdown:/sbin/ifdown -a
+::shutdown:/bin/umount -a -r
+ttyS0::respawn:/sbin/getty 115200 ttyS0
+#::respawn:/sbin/klogd -n
+#::respawn:/sbin/syslogd -n
+#::respawn:/usr/sbin/ntpd -n
+#::respawn:/sbin/dropbear -R -F

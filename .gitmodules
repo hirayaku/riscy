@@ -1,0 +1,3 @@
+[submodule "riscy-ooo"]
+	path = riscy-ooo
+	url = https://github.com/hirayaku/riscy-OOO.git
